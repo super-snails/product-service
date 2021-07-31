@@ -3,7 +3,6 @@ dubbo:
     name: product-provider
   registry:
     address: nacos://192.168.1.7:8848
-    check: false
 
 spring:
   application:
@@ -22,7 +21,7 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath*:/mapper/*Mapper.xml
+  mapper-locations: classpath*:/mapper/*.xml
   type-aliases-package: com.tsing.product.api.*
   global-config:
     db-config:
