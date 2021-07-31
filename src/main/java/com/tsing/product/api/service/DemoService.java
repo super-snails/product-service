@@ -1,0 +1,1 @@
+package com.tsing.product.api.service;/** * @Description 测试服务接口 * @author Tsing * @Date 2021/7/31 */public interface DemoService {    /**     * 健康检查     * @Date 2021/7/31 5:02 上午     * @return 返回服务正常状态     */    String checkHealth();}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tsing.product.api.feature.mapper.FeatureMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.tsing.product.api.feature.entity.FeatureEntity">
+        <id column="id" property="id" />
+        <result column="teambuilding_id" property="teambuildingId" />
+        <result column="food_index" property="foodIndex" />
+        <result column="team_building_project" property="teamBuildingProject" />
+        <result column="physical_exertion" property="physicalExertion" />
+        <result column="scenic_scenery" property="scenicScenery" />
+        <result column="description" property="description" />
+        <result column="deleted" property="deleted" />
+        <result column="version" property="version" />
+        <result column="update_at" property="updateAt" />
+        <result column="create_at" property="createAt" />
+    </resultMap>
+
+</mapper>

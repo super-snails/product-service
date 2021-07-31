@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tsing.product.api.teambuilding.mapper.TeambuildingMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.tsing.product.api.teambuilding.entity.TeambuildingEntity">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="destination_name" property="destinationName" />
+        <result column="destination_grade" property="destinationGrade" />
+        <result column="destination_desc" property="destinationDesc" />
+        <result column="price" property="price" />
+        <result column="description" property="description" />
+        <result column="cover_picture" property="coverPicture" />
+        <result column="tips" property="tips" />
+        <result column="expense_descrition_contain" property="expenseDescritionContain" />
+        <result column="expense_descrition_not_contain" property="expenseDescritionNotContain" />
+        <result column="booking_notice" property="bookingNotice" />
+        <result column="deleted" property="deleted" />
+        <result column="version" property="version" />
+        <result column="update_at" property="updateAt" />
+        <result column="create_at" property="createAt" />
+    </resultMap>
+
+</mapper>
