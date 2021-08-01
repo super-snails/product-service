@@ -1,11 +1,11 @@
 package com.tsing.product.api.teambuilding.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tsing.global.result.ResultData;
+import com.tsing.global.result.ResultPageData;
 import com.tsing.product.api.teambuilding.bo.reponse.TeambuildingBoEntity;
 import com.tsing.product.api.teambuilding.bo.request.TeambildingPage;
+import com.tsing.product.api.teambuilding.bo.request.TeambuildingUpdateRequest;
 import com.tsing.product.api.teambuilding.common.TeambuildingCommonService;
 import com.tsing.product.api.teambuilding.entity.TeambuildingEntity;
 import com.tsing.product.api.teambuilding.mapper.TeambuildingMapper;
@@ -30,14 +30,15 @@ public class TeambuildingServiceImpl extends ServiceImpl<TeambuildingMapper, Tea
     private TeambuildingCommonService teambuildingCommonService;
 
     @Override
-    public ResultData<IPage<TeambuildingBoEntity>> pageList(TeambildingPage pageParam) {
-
-        // 1、分页查询数据
+    public ResultData<ResultPageData<TeambuildingBoEntity>> pageList(TeambildingPage pageParam) {
         Page<TeambuildingEntity> pageEntity = teambuildingCommonService.pagingQuery(pageParam);
-        // 2、转换对象
+        return ResultData.success(teambuildingCommonService.coverTeambuildingPageEntityToBo(pageEntity));
+    }
 
-        IPage<TeambuildingBoEntity> teambuildingBoEntityPage = teambuildingCommonService.coverTeambuildingEntityToBo(pageEntity);
-        return null;
+    @Override
+    public ResultData<Boolean> modify(TeambuildingUpdateRequest param) {
+        TeambuildingEntity entity = teambuildingCommonService.coverTeambuildingUpdateRequestToEntity(param);
+        return ResultData.success(teambuildingCommonService.modify(entity));
     }
 
 }

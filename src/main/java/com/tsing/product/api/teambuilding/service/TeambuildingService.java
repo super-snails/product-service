@@ -1,9 +1,10 @@
 package com.tsing.product.api.teambuilding.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.tsing.global.result.ResultData;
+import com.tsing.global.result.ResultPageData;
 import com.tsing.product.api.teambuilding.bo.reponse.TeambuildingBoEntity;
 import com.tsing.product.api.teambuilding.bo.request.TeambildingPage;
+import com.tsing.product.api.teambuilding.bo.request.TeambuildingUpdateRequest;
 import com.tsing.product.api.teambuilding.entity.TeambuildingEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -17,6 +18,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface TeambuildingService extends IService<TeambuildingEntity> {
 
-    ResultData<IPage<TeambuildingBoEntity>> pageList(TeambildingPage pageParam);
+    ResultData<ResultPageData<TeambuildingBoEntity>> pageList(TeambildingPage pageParam);
+
+    ResultData<Boolean> modify(TeambuildingUpdateRequest param);
 
 }
