@@ -5,6 +5,7 @@ import com.tsing.global.result.ResultData;
 import com.tsing.global.result.ResultPageData;
 import com.tsing.product.api.teambuilding.bo.reponse.TeambuildingBoEntity;
 import com.tsing.product.api.teambuilding.bo.request.TeambildingPage;
+import com.tsing.product.api.teambuilding.bo.request.TeambuildingDeleteRequest;
 import com.tsing.product.api.teambuilding.bo.request.TeambuildingUpdateRequest;
 import com.tsing.product.api.teambuilding.common.TeambuildingCommonService;
 import com.tsing.product.api.teambuilding.entity.TeambuildingEntity;
@@ -39,6 +40,11 @@ public class TeambuildingServiceImpl extends ServiceImpl<TeambuildingMapper, Tea
     public ResultData<Boolean> modify(TeambuildingUpdateRequest param) {
         TeambuildingEntity entity = teambuildingCommonService.coverTeambuildingUpdateRequestToEntity(param);
         return ResultData.success(teambuildingCommonService.modify(entity));
+    }
+
+    @Override
+    public ResultData<Boolean> delete(TeambuildingDeleteRequest param) {
+        return ResultData.success(teambuildingCommonService.delete(param));
     }
 
 }
