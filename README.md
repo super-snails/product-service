@@ -23,6 +23,7 @@ product-servie
 | Lombok | 简化代码库 | https://projectlombok.org/ |
 | Dubbo | 服务管理者 | https://dubbo.apache.org/zh/ |
 | Nacos | 注册中心 |  https://nacos.io/en-us/ |
+| Hutool | Java工具类库 |  https://www.hutool.cn/docs/#/ |
 
 ### 三、描述
 
