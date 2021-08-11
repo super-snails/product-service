@@ -55,7 +55,7 @@ public class ProductDictEntity extends Model<ProductDictEntity> {
     /**
      * 数据类型
      */
-    private String dataType;
+    private String content;
 
     /**
      * 附加说明

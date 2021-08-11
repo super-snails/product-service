@@ -3,6 +3,8 @@ package com.tsing.product.api.teambuilding.service.impl;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tsing.global.result.ResultData;
 import com.tsing.global.result.ResultPageData;
+import com.tsing.product.api.feature.entity.FeatureEntity;
+import com.tsing.product.api.stroke.entity.StrokeEntity;
 import com.tsing.product.api.teambuilding.bo.reponse.TeambuildingBoEntity;
 import com.tsing.product.api.teambuilding.bo.request.TeambildingPage;
 import com.tsing.product.api.teambuilding.bo.request.TeambuildingDeleteRequest;
@@ -16,6 +18,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * <p>
@@ -50,8 +54,20 @@ public class TeambuildingServiceImpl extends ServiceImpl<TeambuildingMapper, Tea
 
     @Override
     public ResultData<Boolean> save(TeambuildingSaveRequest param) {
+
+        // 团建基本信息
         TeambuildingEntity entity = teambuildingCommonService.coverTeambuildingSaveRequestToEntity(param);
-        return ResultData.success(teambuildingCommonService.save(entity));
+        Boolean teambuildingSaveStatus = teambuildingCommonService.save(entity);
+
+        // 特色信息
+        FeatureEntity featureEntity = teambuildingCommonService.coverFeatureSaveRequest(param.getFeature());
+        featureEntity.setTeambuildingId(entity.getId());
+        Boolean featureEntitySaveStatus = teambuildingCommonService.saveFeatureEntity(featureEntity);
+
+        // 行程信息
+        List<StrokeEntity> strokeEntityList = teambuildingCommonService.coverStorkeSaveRequest(param.getStorkeList());
+        Boolean strokeEntitySaveStatus = teambuildingCommonService.saveStorkeEntity(strokeEntityList, entity.getId());
+        return ResultData.success(teambuildingSaveStatus || featureEntitySaveStatus);
     }
 
 }

@@ -10,6 +10,7 @@
 product-servie
 ├── api -- 核心业务层
 ├── config -- 配置类
+├── init -- 项目启动加载自定义数据
 ├── utils -- 工具类
 └── todo
 ```
@@ -24,6 +25,8 @@ product-servie
 | Dubbo | 服务管理者 | https://dubbo.apache.org/zh/ |
 | Nacos | 注册中心 |  https://nacos.io/en-us/ |
 | Hutool | Java工具类库 |  https://www.hutool.cn/docs/#/ |
+| Logback | 日志 |  https://logback.qos.ch/manual/index.html |
+
 
 ### 三、描述
 

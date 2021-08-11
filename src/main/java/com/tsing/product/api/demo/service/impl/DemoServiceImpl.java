@@ -6,7 +6,7 @@ import com.tsing.product.api.demo.service.DemoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import org.apache.dubbo.config.annotation.DubboService;
-import org.springframework.stereotype.Service;
+import org.slf4j.LoggerFactory;
 
 /**
  * <p>
